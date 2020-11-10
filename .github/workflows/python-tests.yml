@@ -23,4 +23,5 @@ jobs:
         pipenv install --dev --deploy --system
     - name: Tests with pytest
       run: |
+        cd src
         pytest tests
