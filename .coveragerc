@@ -3,6 +3,8 @@
 branch = True
 omit = 
     tests/*
+    main.py
+    settings.py
 
 [report]
 # Regexes for lines to exclude from consideration
