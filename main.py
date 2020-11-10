@@ -1,4 +1,3 @@
-
 from business import party
 
 from flask import Flask, request
@@ -17,7 +16,6 @@ def hello_world():
 
 
 @app.route('/parties', methods=['POST'])
-def new_party()
+def new_party():
     name = request.form['name']
     result, errors = party.create_party(db, name)
-    
