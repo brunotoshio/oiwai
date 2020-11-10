@@ -1,11 +1,11 @@
-name: Python code lint
+name: Python code testing
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ release ]
 
 jobs:
-  flake8:
+  tests:
 
     runs-on: ubuntu-latest
 
@@ -21,6 +21,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install --dev --deploy --system
-    - name: Lint with flake8
+    - name: Tests with pytest
       run: |
-        flake8 .
+        cd src
+        pytest tests
