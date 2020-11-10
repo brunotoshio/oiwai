@@ -1,7 +1,7 @@
 name: Python code testing
 
 on:
-  pull_request:
+  push:
     branches: [ release ]
 
 jobs:
