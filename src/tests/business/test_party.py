@@ -3,6 +3,7 @@
 
 from business import party
 
+
 class TestCreateParty:
     """ Tests for create party
     """

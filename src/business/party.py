@@ -3,6 +3,7 @@
     This module handles all logic for managing parties
 """
 
+
 def create_party(name):
     """ Create a party
 
