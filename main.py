@@ -19,3 +19,7 @@ def hello_world():
 def new_party():
     name = request.form['name']
     result, errors = party.create_party(db, name)
+    if result:
+        return 'OK'
+    else:
+        return errors
