@@ -27,7 +27,7 @@ class TestPostParties:
         response = client.post('/parties', data={'name': 'test'})
 
         assert 'OK' in str(response.data)
-    
+
     def test_missing_name(self, client):
         response = client.post('/parties', data={'name': ''})
 
