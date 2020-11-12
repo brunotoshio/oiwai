@@ -1,6 +1,6 @@
 from business import party
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import pymongo
 import settings
 
@@ -20,6 +20,6 @@ def new_party():
     name = request.form['name']
     result, errors = party.create_party(db, name)
     if result:
-        return 'OK'
+        return jsonify('OK')
     else:
-        return errors
+        return jsonify(errors)

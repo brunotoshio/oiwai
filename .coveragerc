@@ -3,7 +3,6 @@
 branch = True
 omit = 
     tests/*
-    main.py
     settings.py
 
 [report]
