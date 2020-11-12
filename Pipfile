@@ -9,6 +9,7 @@ gunicorn = "*"
 pytest = "*"
 pytest-cov = "*"
 flake8 = "*"
+pymongo = "*"
 
 [dev-packages]
 

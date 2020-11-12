@@ -4,10 +4,11 @@
 """
 
 
-def create_party(name):
+def create_party(db, name):
     """ Create a party
 
         Args:
+            db: the database connection
             name: the name of the party
         Returns:
             True in case of success, False otherwise.
@@ -15,4 +16,8 @@ def create_party(name):
     """
     if not name:
         return False, ['name is required']
+    party = {
+        'name': name
+    }
+    db.parties.insert_one(party)
     return True, None
