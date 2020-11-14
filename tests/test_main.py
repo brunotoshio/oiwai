@@ -24,11 +24,15 @@ class TestPostParties:
     """ Tests for POST /parties
     """
     def test_post_parties(self, client):
-        response = client.post('/parties', data={'name': 'test'})
+        response = client.post(
+            '/parties',
+            data={'name': 'test', 'description': 'My birthday'}
+        )
 
         assert 'OK' in str(response.data)
 
     def test_missing_name(self, client):
-        response = client.post('/parties', data={'name': ''})
+        response = client.post(
+            '/parties', data={'name': '', 'description': 'My birthday'})
 
         assert 'name is required' in str(response.data)
