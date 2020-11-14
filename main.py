@@ -18,7 +18,8 @@ def hello_world():
 @app.route('/parties', methods=['POST'])
 def new_party():
     name = request.form['name']
-    result, errors = party.create_party(db, name)
+    description = request.form['description']
+    result, errors = party.create_party(db, name, description)
     if result:
         return jsonify('OK')
     else:
