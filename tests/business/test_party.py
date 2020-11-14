@@ -8,7 +8,8 @@ class TestCreateParty:
     """ Tests for create party
     """
     def test_success(self, mongo):
-        result, errors = party.create_party(mongo, 'Birthday', description='My birthday')
+        result, errors = party.create_party(
+            mongo, 'Birthday', description='My birthday')
 
         assert result
         assert errors is None
@@ -24,12 +25,19 @@ class TestCreateParty:
         assert len(errors) > 0
         assert 'name is required' in errors
         assert mongo.parties.count_documents({}) == 0
-    
+
     def test_success_with_description(self, mongo):
-        result, errors = party.create_party(mongo, 'Birthday', description='My birthday')
+        result, errors = party.create_party(
+            mongo, 'Birthday', description='My birthday')
 
         assert result
         assert errors is None
         assert mongo.parties.count_documents({}) == 1
-    
-    
+
+    def test_missing_description(self, mongo):
+        result, errors = party.create_party(mongo, 'Birthday', description='')
+
+        assert not result
+        assert len(errors) > 0
+        assert 'description is required' in errors
+        assert mongo.parties.count_documents({}) == 0
