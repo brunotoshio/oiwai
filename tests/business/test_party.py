@@ -41,3 +41,12 @@ class TestCreateParty:
         assert len(errors) > 0
         assert 'description is required' in errors
         assert mongo.parties.count_documents({}) == 0
+
+    def test_missing_name_and_description(self, mongo):
+        result, errors = party.create_party(mongo, '', '')
+
+        assert not result
+        assert len(errors) == 2
+        assert 'description is required' in errors
+        assert 'name is required' in errors
+        assert mongo.parties.count_documents({}) == 0
