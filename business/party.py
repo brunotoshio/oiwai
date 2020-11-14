@@ -15,10 +15,13 @@ def create_party(db, name, description):
             True in case of success, False otherwise.
             An list of errors if the operation failed.
     """
+    errors = []
     if not name:
-        return False, ['name is required']
+        errors.append('name is required')
     if not description:
-        return False, ['description is required']
+        errors.append('description is required')
+    if errors:
+        return False, errors
     party = {
         'name': name,
         'description': description
